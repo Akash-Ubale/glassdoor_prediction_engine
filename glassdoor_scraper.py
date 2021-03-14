@@ -19,15 +19,13 @@ url = "https://techwithtim.net"
 
 driver.get(url)
 
-main = driver.find_element_by_id("main")
-# print(main.text)
-
-time.sleep(2)
-
 search = driver.find_element_by_name("s")
+search.send_keys("test")
 search.send_keys(Keys.RETURN)
 
 
 #driver.close()
+time.sleep(2)
+driver.quit()
 
-#driver.quit()
+

@@ -11,9 +11,10 @@ import pandas as pd
 path = "D:\Akash\Documents\Recover\MY NOTES\web scraping\chromedriver_win32\chromedriver.exe"
 
 # Setting up the Driver
-driver = webdriver.Chrome(path, options = webdriver.ChromeOptions().add_argument('headless'))
+# Setting Up options to avoid opening separate chrome instance.
+options = webdriver.ChromeOptions().add_argument('headless')
+driver = webdriver.Chrome(path, options = options) 
 driver.set_window_size(1120, 1000)
-
 
 url = "https://techwithtim.net"
 
