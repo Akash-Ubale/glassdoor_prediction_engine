@@ -23,6 +23,7 @@ url = "https://techwithtim.net"
 # Sending a getb request through aour web driver.
 driver.get(url)
 
+'''
 # In the HTML page the name for the search box is 's' 
 search = driver.find_element_by_name("s")
 
@@ -46,17 +47,32 @@ try:
     
     for article in articles:
         summary = article.find_elements_by_class_name("entry-summary")
-        print(summary.txt)
+        print(summary)
 finally:
     driver.quit()  ### if even after 10 secs we couldn't find the element then quit.
     
 
+'''
+
+
+# Clicking the Hyperlinked Text in the webpage.
+link = driver.find_element_by_link_text("Python Programming")
+link.click()
+
+
+try:
+    element = WebDriverWait(driver, 15).until(
+        EC.presence_of_element_located((By.LINK_TEXT, "Beginner Python Tutorials"))
+    )
+    element.click()
+    time.sleep(5)
+finally:
+    driver.quit()
 
 # driver.close() ### its used to close the particular tab of the browser window
-# time.sleep(2) ### Wait for 2 seconds.
+#time.sleep(2) ### Wait for 2 seconds.
 
-driver.quit() ### Quits/closes the Entire Browser window.
-
+#driver.quit() ### Quits/closes the Entire Browser window.
 
 # print(driver.page_source)  ### Prints the Entire source code of the webpage.
 
